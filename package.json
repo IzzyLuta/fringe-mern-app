@@ -5,15 +5,16 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "concurrently \"npm run start:client\" \"npm run start:server\"",
     "start:client": "cd fringe-react-app && npm start",
-    "start:server": "node app.js",
-    "build": "npm run build"
+    "start:server": "node app.js"
   },
   "author": "I Luta",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.1.0",
     "body-parser": "^1.20.2",
+    "concurrently": "^7.6.0",
     "cors": "^2.8.5",
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.0",
@@ -26,7 +27,7 @@
     "node": "^18.12.1",
     "npm": "^8.19.2"
   },
-  "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix fringe-react-app && npm run build --prefix fringe-react-app",
+  "heroku-postbuild": "cd fringe-react-app && npm install && npm run build",
   "devDependencies": {
     "nodemon": "^2.0.21"
   }
