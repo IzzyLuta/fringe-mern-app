@@ -3,6 +3,7 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const jwt = require('jsonwebtoken');
 const app = express();
+const path = require('path');
 const { findAll, getShowById, findGenre, createShow, updateShow, deleteShow } = require('./show.controller');
 const User = require('./user.model');
 const { getUserById, updateUser } = require('./user.controller');
@@ -11,6 +12,10 @@ const { addBookmark, removeBookmark, getBookmarkedShows } = require('./bookmarks
 app.use(express.json());
 app.use(cors());
 app.use(bodyParser.json());
+
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, 'fringe-react-app/build')));
+}
 
 //Database connection (MongoDB Atlas) 
 let mongoose = require('mongoose');
@@ -78,6 +83,12 @@ app.put('/users/:id', updateUser);
 app.post('/bookmarks', addBookmark);
 app.delete('/bookmarks', removeBookmark);
 app.get('/users/id/:id/bookmarks', getBookmarkedShows);
+
+if (process.env.NODE_ENV === 'production') {
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'fringe-react-app', 'build', 'index.html'));
+  });
+}
 
 //start server
 const PORT = process.env.PORT || 8000;
