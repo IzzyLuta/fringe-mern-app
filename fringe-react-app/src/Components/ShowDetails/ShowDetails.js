@@ -69,7 +69,9 @@ function ShowDetails() {
     <div>
       <Breadcrumb>
         <Breadcrumb.Item href="/" className="breadcrumb-href">Home</Breadcrumb.Item>
-        <Breadcrumb.Item href="/shows" className="breadcrumb-href">Shows</Breadcrumb.Item>
+        <Breadcrumb.Item>
+          <Link to="/shows" className="breadcrumb-link">Shows</Link>
+        </Breadcrumb.Item>
         <Breadcrumb.Item>
           <Link to={`/shows/genre/${show.genre}`} className="breadcrumb-link" >{show.genre}</Link>
         </Breadcrumb.Item>

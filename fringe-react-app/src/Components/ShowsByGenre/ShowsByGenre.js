@@ -20,7 +20,9 @@ function ShowsByGenre() {
     <div className="shows">
       <Breadcrumb>
         <Breadcrumb.Item href="/" className="breadcrumb-href">Home</Breadcrumb.Item>
-        <Breadcrumb.Item href="/shows" className="breadcrumb-href">Shows</Breadcrumb.Item>
+        <Breadcrumb.Item>
+          <Link to="/shows" className="breadcrumb-link">Shows</Link>
+        </Breadcrumb.Item>
         <Breadcrumb.Item className="breadcrumb-href" active>{genre}</Breadcrumb.Item>
       </Breadcrumb>
       <h2>{genre}</h2>
