@@ -1,0 +1,13 @@
+.show-card {
+    margin: 4vh; 
+}
+
+.custom-card-header {
+    background-color: #f27289e1;
+}
+
+.uppercase {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+  

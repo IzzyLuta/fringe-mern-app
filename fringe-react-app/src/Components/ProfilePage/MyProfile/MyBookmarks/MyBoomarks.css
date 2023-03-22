@@ -1,0 +1,37 @@
+.custom-btn-pink {
+    background-color: #F27289; 
+    color: black; 
+    border: none;
+    margin: 5px;
+}
+  
+.custom-btn-pink:hover {
+    background-color: #f27289e1;
+}
+
+.custom-btn-blue {
+    background-color: #589CB6; 
+    color:black; 
+    border: none;
+    margin: 5px;
+}
+  
+.custom-btn-blue:hover {
+    background-color: #589bb6e1; 
+}
+
+.custom-btn-yellow {
+    background-color: #FBD42A; 
+    color:black; 
+    border: none;
+    margin: 5px;
+}
+  
+.custom-btn-yellow:hover {
+    background-color: #fbd52aa8;
+}
+
+.margin-2vh{
+  padding: 2vh;
+}
+  

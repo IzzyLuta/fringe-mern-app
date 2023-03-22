@@ -1,0 +1,14 @@
+.show-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 1vh; 
+  }
+  
+  .show-form input,
+  .show-form select,
+  .show-form textarea {
+    margin: 10px;
+    width: 80%;
+    max-width: 500px;
+  }

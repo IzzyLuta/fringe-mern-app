@@ -1,0 +1,12 @@
+.login-container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+  }
+  
+  .login-form {
+    width: 100%;
+    text-align: center;
+  }
+  

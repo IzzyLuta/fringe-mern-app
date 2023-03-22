@@ -1,0 +1,15 @@
+.tab-link{
+    color:black;  
+}
+
+.tab-link:hover{
+    color:#FBD42A; 
+}
+
+.nav-tabs .nav-link.active{
+    color: #f27289;
+}
+
+.margin-top-2vh{
+    margin-top: 2vh;
+}
