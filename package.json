@@ -24,8 +24,5 @@
     "node": "^18.12.1",
     "npm": "^8.19.2"
   },
-  "devDependencies": {
-    "nodemon": "^2.0.21"
-  },
   "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix fringe-react-app && npm run build --prefix fringe-react-app"
 }
