@@ -9,6 +9,16 @@ const User = require('./user.model');
 const { getUserById, updateUser } = require('./user.controller');
 const { addBookmark, removeBookmark, getBookmarkedShows } = require('./bookmarks.controller');
 
+//added for test 2
+const fs = require('fs');
+fs.readdir(path.join(__dirname, 'fringe-react-app/build/static/js'), (err, files) => {
+  if (err) {
+    console.error(err);
+  } else {
+    console.log('JS files in build directory:', files);
+  }
+});
+
 app.use(express.json());
 app.use(cors());
 app.use(bodyParser.json());
