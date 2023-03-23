@@ -49,7 +49,7 @@ function App() {
       <Menu />
       <Routes>
         <Route exact path="/" element={<div><Landing /><Shows /></div>} /> 
-        <Route path="/shows" element={<Shows />} />
+        <Route exact path="/shows" element={<Shows />} />
         <Route path="/shows/genre/:genre" element={<ShowsByGenre />} />
         <Route path="/shows/:id" element={<ShowDetails />} />
         <Route path="/login" element={<Login />} /> 
