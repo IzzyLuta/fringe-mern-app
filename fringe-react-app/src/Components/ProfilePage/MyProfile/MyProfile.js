@@ -62,7 +62,7 @@ function MyProfile() {
   const handleLogout = () => {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
-    navigate('/login');
+    navigate('/');
     window.location.reload();
   };
 
