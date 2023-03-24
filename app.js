@@ -9,7 +9,6 @@ const User = require('./user.model');
 const { getUserById, updateUser } = require('./user.controller');
 const { addBookmark, removeBookmark, getBookmarkedShows } = require('./bookmarks.controller');
 
-//added for test 2
 const fs = require('fs');
 fs.readdir(path.join(__dirname, 'fringe-react-app/build/static/js'), (err, files) => {
   if (err) {
@@ -24,9 +23,6 @@ app.use(cors());
 app.use(bodyParser.json());
 
 app.use(express.static(path.join(__dirname, 'fringe-react-app/build')));
-// if (process.env.NODE_ENV === 'production') {
-//   app.use(express.static(path.join(__dirname, 'fringe-react-app/build')));
-// }
 
 //Database connection (MongoDB Atlas) 
 let mongoose = require('mongoose');
@@ -40,7 +36,7 @@ mongoose.connect(uri, {
   .then(() => console.log('Connected to database fringe_programme!'))
   .catch(err => console.log(err));
 
-// Login
+// Log in operation
 app.post('/login', async (req, res) => {
   const { email, password } = req.body;
 
@@ -57,12 +53,12 @@ app.post('/login', async (req, res) => {
       return res.status(401).send({ err: 'Invalid email or password' });
     }
 
-    // Generate a JWT token for the user
     const payload = {
       email: user.email,
       admin: user.admin || false
     };
 
+    //JWT token used to authenticate user login 
     const token = jwt.sign(JSON.stringify(payload), 'jwt-secret', {
       algorithm: 'HS256'
     });
@@ -84,22 +80,14 @@ app.post('/shows', createShow);
 app.put('/shows/:id', updateShow);
 app.delete('/shows/:id', deleteShow);
 
-// When users navigate to their user profile, their user data will be fetched using their _id
+//USER PROFILE - fetch user data and update user data - all users
 app.get('/users/id/:id', getUserById);
-
-// Update user information endpoint
 app.put('/users/:id', updateUser);
 
-//bookmarks
+//BOOKMARKS - bookmark shows - all users
 app.post('/bookmarks', addBookmark);
 app.delete('/bookmarks', removeBookmark);
 app.get('/users/id/:id/bookmarks', getBookmarkedShows);
-
-// if (process.env.NODE_ENV === 'production') {
-//   app.get('*', (req, res) => {
-//     res.sendFile(path.resolve(__dirname, 'fringe-react-app', 'build', 'index.html'));
-//   });
-// }
 
 app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname, 'fringe-react-app/build', 'index.html'));

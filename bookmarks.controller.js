@@ -1,5 +1,6 @@
 const User = require('./user.model');
 
+//addBookmark will add the selected show's id to 'bookmarkedShows', an array field in the user's document on MongoDB
 exports.addBookmark = async (req, res) => {
   const { userId, showId } = req.body;
 
@@ -15,6 +16,7 @@ exports.addBookmark = async (req, res) => {
   }
 };
 
+//removeBookmark will remove the show id from the 'bookmarkedShows' field
 exports.removeBookmark = async (req, res) => {
   const { userId, showId } = req.body;
 
@@ -30,6 +32,7 @@ exports.removeBookmark = async (req, res) => {
   }
 };
 
+//getBookmarkedShows fetches all shows in the 'bookmarkedShows' field for the logged in user
 exports.getBookmarkedShows = async ({ params: { id } }, res) => {
 
   try {

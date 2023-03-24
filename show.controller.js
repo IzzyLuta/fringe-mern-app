@@ -1,6 +1,6 @@
 const Show = require('./show.model');
 
-//Retrieves information on all the shows in the programme
+//Retrieves information on all the shows in the fringe programme
 async function findAll(req, res) {
   try {
     const shows = await Show.find();
@@ -37,7 +37,7 @@ async function getShowById({ params: { id } }, res) {
   }
 };
 
-//CRUD OPERATIONS for admin accounts to edit, delete and create shows 
+//Admin accounts can edit, delete and create shows 
 // Creates a new show
 async function createShow(req, res) {
   try {
@@ -86,51 +86,3 @@ module.exports = {
   updateShow,
   deleteShow
 };
-
-
-
-
-//old
-// Updates an existing show
-// async function updateShow(req, res) {
-//   try {
-//     const show = await Show.findByIdAndUpdate(req.params.id, req.body, {
-//       new: true,
-//       runValidators: true,
-//     });
-//     if (!show) {
-//       return res.status(404).send('Show not found');
-//     }
-//     res.send(show);
-//   } catch (err) {
-//     res.status(500).send(err);
-//   }
-// };
-
-//create and save methods
-// exports.create = function(req, res) {
-//     let showModel = new Show({title: 'Example Title',
-//     artist: 'Example artist'});
-//         showModel.save(function(err,data) {
-//             if(err) {
-//                 console.log(err);
-//                 res.status(500).send({message: "Some error occurred while creating the show."});
-//             } else {
-//                 console.log(data);
-//                 res.send('The blog has been added');
-//             }
-//     });
-// };
-
-//old 'then' code
-//Retrieves information on all the shows in the programme
-// function findAll(req, res) {
-//   Show.find()
-//     .then((shows) => {
-//       res.send(shows);
-//     })
-//     .catch((err) => {
-//       console.log(err);
-//       res.status(500).send({ message: "Some error occurred while retrieving shows" });
-//     });
-// };

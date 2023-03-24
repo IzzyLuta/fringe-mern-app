@@ -1,7 +1,7 @@
 const User = require('./user.model');
 const jwt = require('jsonwebtoken');
 
-//fetch user information by their user id (_id in their MongoDB document)
+//fetch user information by their user id (_id in each MongoDB document)
 exports.getUserById = async ({ params: { id } }, res) => {
   try {
     const user = await User.findById(id);
