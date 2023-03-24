@@ -26,7 +26,7 @@ app.use(express.static(path.join(__dirname, 'fringe-react-app/build')));
 
 //Database connection (MongoDB Atlas) 
 let mongoose = require('mongoose');
-const uri = 'mongodb+srv://isabellaluta:sGf25FKdX46tboRA@fringecluster.sgdnvxd.mongodb.net/fringe_programme.shows?retryWrites=true&w=majority';
+const uri = '$$$$$$$$$';
 
 mongoose.connect(uri, {
   useNewUrlParser: true,
