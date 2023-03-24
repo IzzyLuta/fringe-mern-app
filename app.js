@@ -24,7 +24,7 @@ app.use(bodyParser.json());
 
 app.use(express.static(path.join(__dirname, 'fringe-react-app/build')));
 
-//Database connection (MongoDB Atlas) 
+//Database connection (MongoDB Atlas) - uri removed for security reasons
 let mongoose = require('mongoose');
 const uri = '$$$$$$$$$';
 
